@@ -1,20 +1,21 @@
-class process{
+class Process{
     String name;
     int burstTime;// the time which the process need to complete its execution
+    int priority;
+
     int arrivalTime;
     int turnAroundTime;
     int waitingTime;
-    int priority;
     int quantum;
     
-    public process(String name, int burstTime,int arrivalTime,int turnAroundTime,int waitingTime,int priority,int quantum){
+    public Process(String name, int burstTime,int priority){
         this.name=name;
         this.burstTime=burstTime;
-        this.arrivalTime=arrivalTime;
-        this.turnAroundTime=turnAroundTime;
-        this.waitingTime=waitingTime;
+
+        this.turnAroundTime=0;
+        this.waitingTime=0;
         this.priority=priority;
-        this.quantum=quantum;
+    
     }
 
 
