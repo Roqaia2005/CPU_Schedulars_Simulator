@@ -20,18 +20,18 @@ void calculateTurnAroundTime(Process processes[], int n)
         processes[i].turnAroundTime = processes[i].burstTime + processes[i].waitingTime;
 }
 void calculateAverageTimes(Process processes [],int n){
-    double totalWatingTime = 0;
+    double totalWaitingTime = 0;
     double totalTurnAroundtime = 0;
     calculateWaitingTime(processes, n);
     calculateTurnAroundTime(processes, n);
 
     for (int i = 0; i < n; i++) {
-        totalWatingTime +=processes[i].waitingTime;
+        totalWaitingTime +=processes[i].waitingTime;
         totalTurnAroundtime += processes[i].turnAroundTime;
         System.out.println(processes[i].name+ " wating time " + processes[i].waitingTime + " turn around time " + processes[i].turnAroundTime);
 }
 System.out.println("Average waiting time: ");
-System.out.println(ceil(totalWatingTime/n));
+System.out.println(ceil(totalWaitingTime/n));
 
 System.out.println("Average turn around time: ");
 System.out.println(ceil(totalTurnAroundtime/n));
@@ -42,7 +42,7 @@ System.out.println(ceil(totalTurnAroundtime/n));
 
 public void priorityScheduler(Process processes[], int n){
         //sort based on prioroty
-        Arrays.sort(processes, (a, b) -> b.priority - a.priority);
+        Arrays.sort(processes, (a, b) -> a.priority - b.priority);
 
 
         
