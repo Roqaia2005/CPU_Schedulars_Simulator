@@ -1,5 +1,7 @@
+import java.awt.List;
 import static java.lang.Math.ceil;
 import java.util.Arrays;
+import org.w3c.dom.ls.LSException;
 
 public class schedulersSimulator {
     void calculateWaitingTime(Process processes[], int n)
@@ -62,9 +64,42 @@ public void priorityScheduler(Process processes[], int n){
     // public void SRTF_Scheduler(){
 
     // }
-    // public void FCAI_Scheduler(){
+    public int calculateV1(Process[]processes){
+        // last arrival time for all processes /10
+        int last_time=0;
+        for(int i=0;i<processes.length;i++){
+            if(processes[i].arrivalTime>last_time){
+                last_time=processes[i].arrivalTime;
+            }
 
-    // }
+        }
+        int v1=last_time/10;
+        return v1;
+
+    }
+    public int calculateV2(Process[]processes){
+        // max burst time for all processes /10
+        int max_time=0;
+        for(int i=0;i<processes.length;i++){
+            if(processes[i].burstTime>max_time){
+                max_time=processes[i].burstTime;
+            }
+
+        }
+        int v2=max_time/10;
+        return v2;
+
+    }
+    void calculateFCAI_factor(Process[]processes){
+        for(int i=0;i<processes.length;i++){
+            processes[i].FCAI_factor=(10-processes[i].priority)+(processes[i].arrivalTime/calculateV1(processes))+(processes[i].remainingBurstTime/calculateV2(processes));
+
+        }
+
+    }
+    public void FCAI_Scheduler(){
+
+    }
     public static void main(String[] args) {
         // Sample process data
         Process[] processes = {
