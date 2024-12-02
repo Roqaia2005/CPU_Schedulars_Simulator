@@ -97,7 +97,9 @@ public void priorityScheduler(Process processes[], int n){
         }
 
     }
-    public void FCAI_Scheduler(){
+    public void FCAI_Scheduler(Process []processes){
+        Arrays.sort(processes, (a, b) -> a.FCAI_factor - b.FCAI_factor);// sort based on fcai factor
+
 
     }
     public static void main(String[] args) {
