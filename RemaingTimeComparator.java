@@ -1,4 +1,4 @@
-package srtf;
+
 
 public class RemaingTimeComparator implements java.util.Comparator<Process> {
     @Override
