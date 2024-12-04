@@ -92,7 +92,7 @@ public void priorityScheduler(Process processes[], int n){
     }
     void calculateFCAI_factor(Process[]processes){
         for(int i=0;i<processes.length;i++){
-            processes[i].FCAI_factor=(10-processes[i].priority)+(processes[i].arrivalTime/calculateV1(processes))+(processes[i].remainingBurstTime/calculateV2(processes));
+            processes[i].FCAI_factor=(10-processes[i].priority)+(processes[i].arrivalTime/calculateV1(processes))+(processes[i].remainingTime/calculateV2(processes));
 
         }
 
