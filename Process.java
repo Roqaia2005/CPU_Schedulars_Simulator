@@ -1,27 +1,47 @@
-package srtf;
-
-public class Process {
+class Process{
     String name;
     String color;
+    int burstTime;// the time which the process need to complete its execution
+    int priority;
     int id;
     int arrivalTime;
-    int burstTime;
-    int remainingTime;
-    int priority;
-    int waitingTime;
     int turnAroundTime;
+    int waitingTime;
+    int quantum;
+    int remainingTime;
+    int FCAI_factor;
     int lastExecuteTime;
-     // Constructor with default priority value
-     public Process(String name, String color,int id, int arrivalTime, int burstTime) {
-        this.name = name;
-        this.color = color;
-        this.id = id;
-        this.arrivalTime = arrivalTime;
-        this.burstTime = burstTime;
-        this.remainingTime = burstTime;
-        this.priority = Integer.MAX_VALUE;
-        this.lastExecuteTime = arrivalTime;
+    
+    public Process(String name, int burstTime,int priority){
+        this.name=name;
+        this.burstTime=burstTime;
+        this.priority=priority;
+    
     }
+         // Constructor with default priority value
+         public Process(String name, String color,int id, int arrivalTime, int burstTime) {
+            this.name = name;
+            this.color = color;
+            this.id = id;
+            this.arrivalTime = arrivalTime;
+            this.burstTime = burstTime;
+            this.remainingTime = burstTime;
+            this.priority = Integer.MAX_VALUE;
+            this.lastExecuteTime = arrivalTime;
+        }
+// this consturctor for FCAI algorithm
+    public Process(String name, int burstTime,int arrivalTime,int priority,int quantum){
+        this.name=name;
+        this.burstTime=burstTime;
+        this.arrivalTime=arrivalTime;
+        this.priority=priority;
+        this.quantum=quantum;
+    
+    }
+
+    // public void calculateFCAIFactor(double V1, double V2) {
+    //     this.FCAI_factor = (10 - this.priority) +(this.arrivalTime / V1) +(this.remainingBurstTime / V2);
+    // }
     //constructor
     public Process(String name, String color,int id, int arrivalTime, int burstTime, int priority){
         this.name = name;
@@ -119,4 +139,5 @@ public class Process {
         }
     }
 }
+
 

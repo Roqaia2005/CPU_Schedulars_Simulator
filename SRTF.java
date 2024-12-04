@@ -1,4 +1,3 @@
-package srtf;
 import java.util.*;
 
 public class SRTF {
@@ -38,8 +37,8 @@ public class SRTF {
                     readyQueue.add(currentProcess);
                 }
                 else{ // the process is done
-                    int turnAroundTime = currentTime -  currentProcess.arrivalTime; 
-                    int waitingTime = turnAroundTime - currentProcess.getBurstTime(); 
+                    int turnAroundTime = currentTime -  currentProcess.arrivalTime;
+                    int waitingTime = turnAroundTime - currentProcess.getBurstTime();
                     currentProcess.setWaitingTime(waitingTime);
                     currentProcess.setTurnAroundTime(turnAroundTime);
                     totalWaitingTime += waitingTime;
@@ -65,5 +64,3 @@ public class SRTF {
     }
 
 }
-
-    

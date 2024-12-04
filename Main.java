@@ -1,4 +1,4 @@
-package srtf;
+
 
 import java.util.*;
 
@@ -25,18 +25,18 @@ public class Main {
         // Add processes to the arrival queue
         arrivalQueue.addAll(processList);
 
-        //check all proccess 
+        //check all proccess
         PriorityQueue<Process> check = new PriorityQueue<>(new ArrivalTimeComparator());
         System.out.println("Proccess sorted on order time: ");
-       while(!arrivalQueue.isEmpty()){
+    while(!arrivalQueue.isEmpty()){
         Process p = arrivalQueue.poll();
         System.out.println(p.getName() + " Arrival Time: " + p.getArrivalTime() + " Burst Time: " + p.getBurstTime());
         check.add(p);
-       }
-       while(!check.isEmpty()){
+    }
+    while(!check.isEmpty()){
         Process p = check.poll();
         arrivalQueue.add(p);
-       }
+    }
 
 
         // Create SRTF scheduler
