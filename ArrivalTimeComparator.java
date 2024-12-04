@@ -1,4 +1,4 @@
-package srtf;
+
 
 public class ArrivalTimeComparator implements java.util.Comparator<Process>{
     @Override
