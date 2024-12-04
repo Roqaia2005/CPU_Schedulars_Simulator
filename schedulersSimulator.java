@@ -4,7 +4,7 @@ import java.util.Arrays;
 import org.w3c.dom.ls.LSException;
 
 public class schedulersSimulator {
-    void calculateWaitingTime(Process processes[], int n)
+void calculateWaitingTime(Process processes[], int n)
 {
     // waiting time for first process is 0
     processes[0].waitingTime=0;
@@ -58,12 +58,6 @@ public void priorityScheduler(Process processes[], int n){
     }
 
     
-    // public void SJF_Scheduler(){
-        
-    // }
-    // public void SRTF_Scheduler(){
-
-    // }
     public int calculateV1(Process[]processes){
         // last arrival time for all processes /10
         int last_time=0;
@@ -105,9 +99,9 @@ public void priorityScheduler(Process processes[], int n){
     public static void main(String[] args) {
         // Sample process data
         Process[] processes = {
-            new Process("P1", 10, 2),
-            new Process("P2", 5,0),
-            new Process("P3", 8,1),
+            new Process("P1", null, 10, 2, 0),
+            new Process("P2", null, 5,0, 0),
+            new Process("P3", null, 8,1, 0),
             
         };
         // Create an instance of SchedulersSimulator
