@@ -11,11 +11,14 @@ class Process{
     int remainingTime;
     int FCAI_factor;
     int lastExecuteTime;
+    public int completionTime;
     
     public Process(String name, int burstTime,int priority){
         this.name=name;
         this.burstTime=burstTime;
         this.priority=priority;
+        this.waitingTime=0;
+        this.turnAroundTime=0;
     
     }
          // Constructor with default priority value
@@ -30,18 +33,17 @@ class Process{
             this.lastExecuteTime = arrivalTime;
         }
 // this consturctor for FCAI algorithm
-    public Process(String name, int burstTime,int arrivalTime,int priority,int quantum){
+    public Process(int id,String name, int burstTime,int arrivalTime,int priority,int quantum){
+        this.id=id;
         this.name=name;
         this.burstTime=burstTime;
         this.arrivalTime=arrivalTime;
         this.priority=priority;
         this.quantum=quantum;
+        this.remainingTime = burstTime;
+
     
     }
-
-    // public void calculateFCAIFactor(double V1, double V2) {
-    //     this.FCAI_factor = (10 - this.priority) +(this.arrivalTime / V1) +(this.remainingBurstTime / V2);
-    // }
     //constructor
     public Process(String name, String color,int id, int arrivalTime, int burstTime, int priority){
         this.name = name;
@@ -138,6 +140,9 @@ class Process{
             remainingTime--;
         }
     }
+
+
+
 }
 
 
