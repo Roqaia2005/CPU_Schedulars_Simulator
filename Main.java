@@ -35,8 +35,6 @@ public class Main {
         Process p = check.poll();
         arrivalQueue.add(p);
     }
-
-
         // Create SRTF scheduler
         SRTF srtf = new SRTF(arrivalQueue);
 
@@ -67,10 +65,8 @@ fcaiTest.add(new Process(2,"p2",6,3,4,3));
 fcaiTest.add(new Process(3,"p3",10,4,4,5));
 fcaiTest.add(new Process(4,"p4",4,29,4,2));
 
-FCAI_Scheduler fcai=new FCAI_Scheduler(fcaiTest);
-// fcai.execute();
-
+FCAI_Scheduler fcai = new FCAI_Scheduler(fcaiTest);
+fcai.execute();
 
 }
-
 }
