@@ -1,5 +1,7 @@
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Queue;
 
 public class FCAI_Scheduler extends schedulersSimulator {
 
@@ -59,12 +61,43 @@ public class FCAI_Scheduler extends schedulersSimulator {
 
     }
 
+    public void execute(){
+        Queue<Process>readyQueue=new LinkedList<>();
+        int currentTime=0;
+        Process currentProcess=null;
+
+        while(!processes.isEmpty()||!readyQueue.isEmpty()){
+            readyQueue.addAll(processes);//add all processes arrive at time 0
+
+            if(!readyQueue.isEmpty()){//there are processes ready to be exectued
+                currentTime++;
+
+
+            }
+            if(currentProcess==null){// if there is no process executed currently pick first from ready queue
+                currentProcess=readyQueue.poll();
+                // next execute till 40% of qunatum and check fcai factor,update quntum
+
+
+        }
+
+        
+       // start execute processes from time 0
+        // current process being executed while time running till it finish
+        // if not finish and its quantum exceeded 40% check for process has least fcai factor
+        // if the process prempted added back to the ready queue and update its quantum with the reamining quantum
+        // if it finish its quantum but still have remaining work update its quantum by 2
+        // still execute processes untill list of processes and the ready queue become empty
+        // make sure to recalculate fcai factor dyanmically when quntum updated
+        // print the history of quantum update for each process
+
+
+    }
     
 }
 
 
 
 
-
-
+}
 
