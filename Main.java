@@ -55,6 +55,20 @@ processes.add(new Process("P3", 8, 1));
 
         
         simulator.priority((ArrayList<Process>) processes);
+
+         // test for SJF...
+    SJF sjf = new SJF();
+        Process p1 = new Process("p1","red",1,0,7);
+        Process p2 = new Process("p2","purple",2,2,4);
+        Process p3 = new Process("p3","green",3,4,1);
+        Process p4 = new Process("p4","blue",4,5,4);
+        sjf.addProcess(p1);
+        sjf.addProcess(p2);
+        sjf.addProcess(p3);
+        sjf.addProcess(p4);
+
+        sjf.NonPreemptiveSJF();
+        sjf.print();
     
 
 
