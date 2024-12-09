@@ -9,7 +9,10 @@ public class Main {
         for (int i = 0; i < 10; i++) {
             int arrivalTime = (int) (Math.random() * 10); // random arrival time between 0 and 9
             int burstTime = (int) (Math.random() * 10) + 1; // random burst time between 1 and 10
-            processList.add(new Process("Process" + (i + 1), "Color" + (i + 1), i, arrivalTime, burstTime)); // no priority for now
+            int red = (int)(Math.random() *256);
+            int blue = (int)(Math.random() *256);
+            int green = (int)(Math.random() *256);
+            processList.add(new Process("P" + (i + 1), "Color"+ (i + 1), red, blue, green, i, arrivalTime, burstTime)); // no priority for now
         }
 
         // Print out the process list for clarity
@@ -43,7 +46,7 @@ public class Main {
 
         // Print the results
         srtf.print();
-
+        
 // test for priority scheduling
 
 List<Process> processes = new ArrayList<>();
