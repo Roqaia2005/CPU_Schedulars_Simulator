@@ -9,7 +9,10 @@ public class Main {
         for (int i = 0; i < 10; i++) {
             int arrivalTime = (int) (Math.random() * 10); // random arrival time between 0 and 9
             int burstTime = (int) (Math.random() * 10) + 1; // random burst time between 1 and 10
-            processList.add(new Process("Process" + (i + 1), "Color" + (i + 1), i, arrivalTime, burstTime)); // no priority for now
+            int red = (int)(Math.random() *256);
+            int blue = (int)(Math.random() *256);
+            int green = (int)(Math.random() *256);
+            processList.add(new Process("P" + (i + 1), "Color"+ (i + 1), red, blue, green, i, arrivalTime, burstTime)); // no priority for now
         }
 
         // Print out the process list for clarity
@@ -43,7 +46,7 @@ public class Main {
 
         // Print the results
         srtf.print();
-
+        
 // test for priority scheduling
 
 List<Process> processes = new ArrayList<>();
@@ -55,6 +58,20 @@ processes.add(new Process("P3", 8, 1));
 
         
         simulator.priority((ArrayList<Process>) processes);
+
+         // test for SJF...
+    SJF sjf = new SJF();
+        Process p1 = new Process("p1","red",1,0,7);
+        Process p2 = new Process("p2","purple",2,2,4);
+        Process p3 = new Process("p3","green",3,4,1);
+        Process p4 = new Process("p4","blue",4,5,4);
+        sjf.addProcess(p1);
+        sjf.addProcess(p2);
+        sjf.addProcess(p3);
+        sjf.addProcess(p4);
+
+        sjf.NonPreemptiveSJF();
+        sjf.print();
     
 
 
