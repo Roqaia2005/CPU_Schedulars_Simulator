@@ -1,4 +1,4 @@
-public class RemaininggTimeComparator implements java.util.Comparator<Process> {
+public class RemainingTimeComparator implements java.util.Comparator<Process> {
     @Override
     public int compare(Process p1, Process p2){
         int priorityComparison = Integer.compare(p1.getPriority(),p2.getPriority());
