@@ -1,6 +1,7 @@
 class Process{
     String name;
     String color;
+    int colorCode;
     int burstTime;// the time which the process need to complete its execution
     int priority;
     int id;
@@ -22,9 +23,10 @@ class Process{
     
     }
          // Constructor with default priority value
-        public Process(String name, String color,int id, int arrivalTime, int burstTime) {
+        public Process(String name, String color,int r,int b, int g,int id, int arrivalTime, int burstTime) {
             this.name = name;
             this.color = color;
+            this.colorCode = (r << 16) | (g << 8) | b; // Combine RGB into a single integer;
             this.id = id;
             this.arrivalTime = arrivalTime;
             this.burstTime = burstTime;
@@ -44,16 +46,23 @@ class Process{
 
     
     }
-    //constructor
-    public Process(String name, String color,int id, int arrivalTime, int burstTime, int priority){
+    //constructor with priority
+    public Process(String name, String color,int r,int b, int g,int id, int arrivalTime, int burstTime, int priority){
         this.name = name;
         this.color = color;
+        this.colorCode = (r << 16) | (g << 8) | b;
         this.id = id;
         this.arrivalTime = arrivalTime;
         this.burstTime = burstTime;
         this.remainingTime = burstTime;
         this.priority = priority;
         this.lastExecuteTime = arrivalTime;
+    }
+    String getColorCode(){
+        int red = (colorCode>> 16) & 0xFF;
+        int green =(colorCode>> 8) &0xFF;
+        int blue = colorCode &0xFF;
+        return String.format("\033[38;2;%d;%d;%dm", red, green, blue); // RGB format
     }
 
 
